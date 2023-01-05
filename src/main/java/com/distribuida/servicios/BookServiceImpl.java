@@ -12,16 +12,14 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
     @Inject
     private DataSource dataSource;
-    @Inject
-    private Book book;
 
     //Listar todos los libros
     @Override
     public List<Book> allBooks() {
         Jdbi jdbi = Jdbi.create(dataSource);
-        Handle handle = jdbi.open();
+        Handle con = jdbi.open();
         List<Book> books =
-                handle.createQuery("SELECT * FROM books ORDER BY id ASC")
+                con.createQuery("SELECT * FROM books ORDER BY id ASC")
                         .mapToBean(Book.class)
                         .list();
         return books;
