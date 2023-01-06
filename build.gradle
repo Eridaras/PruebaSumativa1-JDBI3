@@ -31,7 +31,7 @@ dependencies {
 }
 
 application{
-    mainClassName='com.programacion.servidor'
+    mainClassName='com.distribuida.servidor'
 }
 sourceSets{
     main{
